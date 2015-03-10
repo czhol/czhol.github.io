@@ -6,33 +6,41 @@ $(document).ready(function () {
 
     $('#send').click(function () {
         var date = $("input[name=date]").val();
-        var message  = $("input[name=message]").val();
+        var message  = $("textarea[name=message]").val();
+        var verify = $("input[name=verify]").val();
 
         console.log(date);
         console.log(message);
+        console.log(verify);
 
-        $.ajax({
-            url: 'https://api.parse.com/1/classes/Saying',
-            headers: {
-                'X-Parse-Application-Id': parseID,
-                'X-Parse-REST-API-Key': parseKey
-            },
-            contentType: 'application/json',
-            dataType: 'json',
-            processData: false,
-            data: JSON.stringify({
-                'date': date,
-                'message': message
-            }),
-            type: 'POST',
-            success: function () {
-                console.log('sent');
-                getMessages();
-            },
-            error: function () {
-                console.log('error');
-            }
-        });
+        if( verify === '209') {
+            $.ajax({
+                url: 'https://api.parse.com/1/classes/Saying',
+                headers: {
+                    'X-Parse-Application-Id': parseID,
+                    'X-Parse-REST-API-Key': parseKey
+                },
+                contentType: 'application/json',
+                dataType: 'json',
+                processData: false,
+                data: JSON.stringify({
+                    'date': date,
+                    'message': message
+                }),
+                type: 'POST',
+                success: function () {
+                    console.log('sent');
+                    getMessages();
+                },
+                error: function () {
+                    console.log('error');
+                }
+            });
+        } else {
+            alert('Please input a valid lab number');
+        }
+
+
     });
 });
 
