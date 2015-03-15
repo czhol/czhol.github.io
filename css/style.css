@@ -1,0 +1,35 @@
+body {
+    font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    font-size: 14px;
+}
+
+.app-content {
+    width: 100%;
+}
+
+form {
+    padding: 10px 30px 20px 25px;
+}
+
+md-input-container.long {
+    width: 60%;
+}
+
+.md-primary-btn {
+    display: block;
+    margin: 1em;
+    line-height: 25px;
+    color: blue;
+    font-weight: bold;
+}
+
+.face {
+    border-radius: 30px;
+    border: 1px solid #ddd;
+    width: 48px;
+    margin: 16px;
+}
+
+p.post-message {
+    font-size: 1.2em;
+}

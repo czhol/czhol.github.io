@@ -1,0 +1,40 @@
+<md-content layout="column" layout-align="center center">
+    <div class="app-content">
+        <div>
+            <p>&nbsp; If you can, help others; if you cannot do that, at least do not harm them. -- motto</p>
+        </div>
+        <form ng-submit="main.addPost()" flex>
+            <div layout="row" layout-sm="column" layout-padding layout-align="left center">
+                <md-input-container class="long">
+                    <label>New post</label>
+                    <input ng-model="main.newPost.message" placeholder="Input a new post here." required/>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Verify code</label>
+                    <input ng-model="main.verify" placeholder="Input the verify code."/>
+                </md-input-container>
+
+                <md-button class="md-primary-btn"> ADD NEW POST </md-button>
+
+            </div>
+
+        </form>
+
+        <md-list>
+            <md-item ng-repeat="item in main.posts">
+                <md-item-content>
+                    <div class="md-tile-left">
+                        <!--<i class="fa fa-bullhorn fa-lg"></i>-->
+                        <img src="./images/icon-post.png" class="face" alt="icon"/>
+                    </div>
+                    <div class="md-tile-content">
+                        <p><small>{{ item.createdAt }}</small></p>
+                        <p class="post-message">{{ item.message }}</p>
+                    </div>
+                </md-item-content>
+                <md-divider md-inset ng-if="!$last"></md-divider>
+            </md-item>
+        </md-list>
+    </div>
+</md-content>
